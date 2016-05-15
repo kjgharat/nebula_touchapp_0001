@@ -18,10 +18,9 @@ var sidemenu_main = {
     scroll: false,
     template: "<span class='webix_icon fa-#icon#'></span> #value#",
     data: [
-      {id: 2, value: "Studios", icon: "cube"},
-      {id: 3, value: "Activities", icon: "heartbeat"},
-      {id: 4, value: "User Profile", icon: "user"},
-      {id: 5, value: "Settings", icon: "cog"}
+      {id: 1, value: "User Profile", icon: "user"},
+      {id: 2, value: "Settings", icon: "cog"},
+      {id: 3, value: "Contact us", icon: "phone"}
     ],
     select: true,
     type: {
