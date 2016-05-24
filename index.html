@@ -39,11 +39,11 @@
                 {view: "label", width: 130, label: "Law Reference", align: "left"},
                 {view: "label", label: ""},
                 {view: "label", label: "<img class='photo' src='res/law.png' />", width: 63, height: 49, align: "left"}
-               
+
               ]
             },
-            {view: "label", label: "", height: 15},
-            {cols: [{view: "richselect",
+            {view: "label", label: "", height: 30},
+            {cols: [{view: "richselect", width: 150,
                   id: "listSection", placeholder: 'Category',
                   value: 1, yCount: "IPC", options: [
                     {id: 1, value: "IPC"}, // the initially selected item
@@ -52,49 +52,61 @@
                     {id: 4, value: "POCSO"}
                   ]
                 },
-                {view: "text", placeholder: "Section", width: 80, maxlength: 4},
-                {view: "button", value: "Update", width: 80, click: "update_section"}]},
-            {
-              view: "tabview",
-              cells: [
-                {
-                  header: "Details",
-                  body: {
-                    view: "form", scroll: false,
-                    borderless: true,
-                    elements: [
-                      {view: "fieldset", label: "Field Set 1", body: {
-                          rows: [
-                            { view:"checkbox", id:"chk_01", label:"", value:1, labelRight: "Bailable"},
-                            { view:"checkbox", id:"chk_02", label:"", value:1, labelRight: "Compensate"},
-                            { view:"checkbox", id:"chk_03", label:"", value:1, labelRight: "Punishable"},
-                            { view:"checkbox", id:"chk_04", label:"", value:1, labelRight: "Session Court"},
-                            { view:"checkbox", id:"chk_05", label:"", value:1, labelRight: "Warrant"},
-                            { view:"checkbox", id:"chk_06", label:"", value:1, labelRight: "Defensable"}
-                          ]
-                        }},
-                      {margin: 5, cols: [
-                          {view: "button", label: "Show" },
-                          {view: "button", label: "Hide"}
-                        ]}
-                    ]
-                  }
-                },
-                {
-                  header: "Case Law",
-                  body: {view: "textarea", value: caselaw_Text}
-                },
-                {
-                  header: "Definition",
-                  body: {view: "textarea", value: definition}
-                }
-              ]
-            }
+                {id: "sectionNo", view: "text", placeholder: "Section", width: 150, maxlength: 4},
+                {view: "label", label: ""}
+              ]},
+            {view: "label", label: "", height: 30},
+            {cols: [
+                {view: "label", label: ""},
+                {rows: [
+                    {view: "button", value: "Definition", width: 160},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Illustration", width: 160},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Compundability", width: 160, click: "show_details('Compundability')"},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Nature of Case", width: 160, click: "show_details('Nature of Case')"},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Ingradiants", width: 160},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Latest case law", width: 160, click: "update_section"}
+                  ]}, {rows: [
+                    {view: "button", value: "Punishment", width: 160},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Example", width: 160},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Cognizability", width: 160, click: "show_details('Cognizability')"},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Triable by", width: 160, click: "show_details('Triable by')"},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Landmark Case Law", width: 160},
+                    {view: "label", label: "", height: 15},
+                    {view: "button", value: "Lastest amendment", width: 160, click: "update_section"}
+                  ]}, {view: "label", label: ""}
+              ]}
 
           ]
         });
         webix.ui(sidemenu_main);
+
+        webix.ui({
+          view: "window", width: 380, height: 600, id: "topwin", position: "center", modal: true,
+          head: {
+            view: "toolbar", cols: [
+              {view: "label", label: "Details"},
+              {view: "button", label: 'Close', width: 100, align: 'right', click: "$$('topwin').hide();"}
+            ]
+          },
+          body: {view: "scrollview", id: "verses", height: 300, scroll: "y", body: {view: "iframe", id: "frame-body", src: "res/ipc123.html"}}
+        }).hide();
+
+
       });
+
+
+
+
+
 
     </script>
   </body>

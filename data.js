@@ -29,29 +29,68 @@ var sidemenu_main = {
   }
 };
 
+function show_details(inputText) {
+  var displayText = "-"
+  var section = $$('listSection').getValue();
+  var sectionNo = $$('sectionNo').getValue();
+
+  if (section == 1) {
+
+
+    if (sectionNo == 123 && inputText == "Compundability") {
+      displayText = "Non-Compoundable";
+    } else if (sectionNo == 123 && inputText == "Cognizability") {
+      displayText = "Cognizable";
+    } else if (sectionNo == 123 && inputText == "Nature of Case") {
+      displayText = "Summon Case";
+    } else if (sectionNo == 123 && inputText == "Triable by") {
+      displayText = "Session Court";
+    } else if (sectionNo == 336 && inputText == "Compundability") {
+      displayText = "Non-Compoundable";
+    } else if (sectionNo == 336 && inputText == "Cognizability") {
+      displayText = "Cognizable";
+    } else if (sectionNo == 336 && inputText == "Nature of Case") {
+      displayText = "Summon Case";
+    } else if (sectionNo == 336 && inputText == "Triable by") {
+      displayText = "MM Court";
+    } else if (sectionNo == 339 && inputText == "Compundability") {
+      displayText = "Non-Compoundable";
+    } else if (sectionNo == 339 && inputText == "Cognizability") {
+      displayText = "Non-Cognizable";
+    } else if (sectionNo == 339 && inputText == "Nature of Case") {
+      displayText = "Warrant Case";
+    } else if (sectionNo == 339 && inputText == "Triable by") {
+      displayText = "Session Court";
+    } else if (sectionNo == 343 && inputText == "Compundability") {
+      displayText = "Compoundable";
+    } else if (sectionNo == 343 && inputText == "Cognizability") {
+      displayText = "Cognizable";
+    } else if (sectionNo == 343 && inputText == "Nature of Case") {
+      displayText = "Warrant Case";
+    } else if (sectionNo == 343 && inputText == "Triable by") {
+      displayText = "MM Court";
+    }
+
+
+  }
+//displayText = displayText.concat(section, sectionNo, inputText)
+
+
+  webix.alert(displayText);
+}
+
+function update_section() {
+  $$('topwin').show();
+  //webix.message("Data Updated");
+}
 
 ///////////////////////////////////
-var detailsList = [
-  {title: "Non Bailable"},
-  {title: "Non Compensate"},
-  {title: "Non Punishable"},
-  {title: "Session Court"},
-  {title: "Warrant"},
-  {title: "Defensable"},
-  {title: "Non Bailable1"},
-  {title: "Non Compensate1"},
-  {title: "Non Punishable1"},
-  {title: "Session Court1"},
-  {title: "Warrant1"},
-  {title: "Defensable1"},
-  {title: "Non Bailable2"},
-  {title: "Non Compensate2"},
-  {title: "Non Punishable3"},
-  {title: "Session Court4"},
-  {title: "Warrant5"},
-  {title: "Defensable5"}
-];
 
+
+
+
+
+/*
 var caselaw_Text =
         "Abettor when liable to cumulative punishment for act abetted and for act done"
         ;
@@ -60,9 +99,7 @@ var definition =
         "When an act is abetted with the intention on the part of the abettor of causing a particular effect, and an act for which the abettor is liable in consequence of the abetment, causes a different effect from that intended by the abettor, the abettor is liable for the effect caused, in the same manner and to the same extent as if he had abetted the act with the intention of causing that effect, provided he knew that the act abetted was likely to cause that effect."
         ;
 
-function update_section() {
-  webix.message("Data Updated");
-}
+
 
 var topmenu = {view: "menu", width: 200, css: "blue", data:
           [
@@ -86,79 +123,4 @@ function menuClick(value) {
   }
   webix.message(value);
 }
-var view1 = {
-  view: "tabview", id: "view1id",
-  cells: [
-    {
-      header: "Details12",
-      body: {
-        view: "list",
-        scroll: "y",
-        width: 150,
-        height: 500,
-        template: " #title# ",
-        select: true,
-        data: detailsList
-      }
-    },
-    {
-      header: "Case Law",
-      body: {view: "label", label: caselaw_Text}
-    },
-    {
-      header: "Definition",
-      body: {view: "label", label: definition}
-    }
-  ]
-};
-var view2 = {
-  view: "tabview", id: "view2id",
-  cells: [
-    {
-      header: "DetailsABC",
-      body: {
-        view: "list",
-        id: "view2listid",
-        scroll: "y",
-        width: 150,
-        height: 500,
-        template: " #title# ",
-        select: true,
-        data: detailsList
-      }
-    },
-    {
-      header: "Case Law",
-      body: {view: "label", label: caselaw_Text}
-    },
-    {
-      header: "Definition",
-      body: {view: "label", label: definition}
-    }
-  ]
-};
-
-var view = {
-  view: "tabview",
-  cells: [
-    {
-      header: "DetailsABC",
-      body: {
-        view: "list",
-        scroll: "y",
-        template: " #title# ",
-        select: true,
-        data: detailsList
-      }
-    },
-    {
-      header: "Case Law",
-      body: {view: "label", label: caselaw_Text}
-    },
-    {
-      header: "Definition",
-      body: {view: "label", label: definition}
-    }
-  ]
-};
-
+*/
